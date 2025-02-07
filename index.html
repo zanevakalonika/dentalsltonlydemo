@@ -158,7 +158,7 @@
               dimulai dari sini!
             </p>
 
-            <form action="" class="hero-form">
+            <form action="" class="hero-form" name="kritik-&-saran-dental-solution">
               <input type="text" class="email-field" id="kritiksaran" aria-describedby="kritiksaran" name="kritiksaran" 
                 placeholder="Masukkan kritik/saran..." required/>
 
@@ -173,7 +173,27 @@
 
         </div>
       </section>
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz0xARCFLtKjpnlXxR4vXeXGOEJYjSYYYusggrqzI5PZlJj_SG7XKBCI-vLGb9ZeCTR/exec'
+        const form = document.forms['kritik-&-saran-dental-solution']
+      const btnKirim = document.querySelector('.btn-kirim')
+      
 
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          // ketika tombol sumbmit diklik
+          
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then((response) => {
+                
+          form.reset();
+                console.log('Success!', response)
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+
+
+      </script>
 
 
 
@@ -739,7 +759,7 @@
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="#home" class="footer-link">
               <ion-icon name="add-outline"></ion-icon>
 
               <span class="span">Home</span>
@@ -747,7 +767,7 @@
           </li>
 
           <li>
-            <a href="#" class="footer-link">
+            <a href="#about" class="footer-link">
               <ion-icon name="add-outline"></ion-icon>
 
               <span class="span">About Us</span>
@@ -755,7 +775,7 @@
           </li>
 
           <li>
-            <a href="" class="footer-link">
+            <a href="#service" class="footer-link">
               <ion-icon name="add-outline"></ion-icon>
 
               <span class="span">Services</span>
@@ -763,23 +783,7 @@
           </li>
 
           <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="add-outline"></ion-icon>
-
-              <span class="span">Project</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="add-outline"></ion-icon>
-
-              <span class="span">Our Team</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
+            <a href="#blog" class="footer-link">
               <ion-icon name="add-outline"></ion-icon>
 
               <span class="span">Latest Blog</span>
